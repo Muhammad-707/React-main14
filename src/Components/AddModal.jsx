@@ -16,13 +16,11 @@ export default function AddModal({
 
     return (
         <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
-            {/* Overlay / Задний фон */}
             <div 
                 className="absolute inset-0 bg-black/80 backdrop-blur-sm"
                 onClick={() => setOpen(false)}
             />
 
-            {/* Modal Content */}
             <div className="relative bg-[#1A1A1A] border border-[#262626] w-full max-w-lg rounded-[2.5rem] p-8 shadow-2xl overflow-hidden">
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="text-white text-2xl font-bold uppercase tracking-tight">Add New Task</h2>
@@ -35,12 +33,9 @@ export default function AddModal({
                 </div>
 
                 <div className="space-y-6">
-                    {/* Uploader Section */}
                     <div className="bg-[#111] border border-[#262626] border-dashed rounded-2xl p-4 flex justify-center">
                         <Uploader onChange={(e) => setFile(e.target.files[0])} />
                     </div>
-
-                    {/* Inputs */}
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <label className="text-gray-500 text-[10px] uppercase font-bold tracking-widest ml-2">Task Name</label>
@@ -63,8 +58,6 @@ export default function AddModal({
                             />
                         </div>
                     </div>
-
-                    {/* Actions */}
                     <div className="flex gap-4 pt-4">
                         <button 
                             onClick={() => setOpen(false)}

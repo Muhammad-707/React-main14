@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Plus, Search } from "lucide-react";
 
-// Импорты твоих компонентов
 import TodoItem from "../Components/TodoItem";
 import AddModal from "../Components/AddModal";
 import EditModal from "../Components/EditModal";
@@ -13,19 +12,17 @@ export default function TodoList() {
   const [todos, setTodos] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Состояния для модалок
   const [openAdd, setOpenAdd] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openInfo, setOpenInfo] = useState(false);
 
-  // Состояния данных
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
-  const [selectedItem, setSelectedItem] = useState(null); // Для просмотра
-  const [editId, setEditId] = useState(null); // Для редактирования
+  const [selectedItem, setSelectedItem] = useState(null); 
+  const [editId, setEditId] = useState(null); 
 
-  // --- GET (Получение всех задач) ---
+
   async function getTodos() {
     try {
       const { data } = await axios.get(BASE_URL);
@@ -35,7 +32,6 @@ export default function TodoList() {
     }
   }
 
-  // --- DELETE (Удаление) ---
   async function deleteTodo(id) {
     try {
       await axios.delete(`${BASE_URL}?id=${id}`);
@@ -45,7 +41,6 @@ export default function TodoList() {
     }
   }
 
-  // --- ADD (Используем FormData, так как обычно добавление идет с картинкой) ---
   async function postTodo() {
     const formData = new FormData();
     formData.append("Name", name);
@@ -61,7 +56,6 @@ export default function TodoList() {
     }
   }
 
-  // --- EDIT (Открытие модалки) ---
   const handleEditClick = (item) => {
     setEditId(item.id);
     setName(item.name);
@@ -69,9 +63,7 @@ export default function TodoList() {
     setOpenEdit(true);
   };
 
-  // --- PUT (Исправлено под Swagger: JSON вместо FormData) ---
   async function putTodo() {
-    // В Swagger указан JSON объект с маленькими буквами: id, name, description
     const updateData = {
       id: editId,
       name: name,
@@ -92,13 +84,11 @@ export default function TodoList() {
     }
   }
 
-  // --- INFO (Просмотр) ---
   const handleInfoClick = (item) => {
     setSelectedItem(item);
     setOpenInfo(true);
   };
 
-  // Закрытие всех модалок и очистка стейтов
   const closeAndClear = () => {
     setOpenAdd(false);
     setOpenEdit(false);
@@ -110,7 +100,6 @@ export default function TodoList() {
     setSelectedItem(null);
   };
 
-  // Поиск
   const filterData = todos.filter((item) =>
     item.name?.toLowerCase().includes(search.toLowerCase())
   );
@@ -123,7 +112,6 @@ export default function TodoList() {
     <div className="min-h-screen bg-[#0F0F0F] p-4 md:p-8 text-white font-sans">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header & Controls */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
           <div className="bg-[#111] border border-[#262626] px-6 py-4 rounded-2xl">
             <h2 className="text-2xl font-bold uppercase tracking-tight">Project Tasks</h2>
@@ -150,7 +138,6 @@ export default function TodoList() {
           </div>
         </div>
 
-        {/* Grid */}
         {filterData.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filterData.map((todo) => (
@@ -170,7 +157,6 @@ export default function TodoList() {
         )}
       </div>
 
-      {/* MODALS */}
       <AddModal 
         open={openAdd} 
         setOpen={closeAndClear} 

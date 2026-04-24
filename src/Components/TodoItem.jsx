@@ -8,7 +8,6 @@ export default function TodoItem({ item, onDelete, onEdit, onInfo }) {
     return (
         <div className="relative bg-[#1A1A1A] border border-[#262626] rounded-[2rem] p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-[#D48D71]/50 group">
             
-            {/* Кнопки управления (появляются при наведении или всегда полупрозрачны) */}
             <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button 
                     onClick={() => onEdit(item)} 
@@ -26,7 +25,6 @@ export default function TodoItem({ item, onDelete, onEdit, onInfo }) {
                 </button>
             </div>
 
-            {/* Кнопка Info (слева сверху) */}
             <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button 
                     onClick={() => onInfo(item)}
@@ -36,7 +34,6 @@ export default function TodoItem({ item, onDelete, onEdit, onInfo }) {
                 </button>
             </div>
 
-            {/* Контейнер для изображения */}
             <div className="relative mb-4 mt-2">
                 <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#262626] group-hover:border-[#D48D71] transition-colors">
                     <img 
@@ -45,11 +42,9 @@ export default function TodoItem({ item, onDelete, onEdit, onInfo }) {
                         className="w-full h-full object-cover"
                     />
                 </div>
-                {/* Индикатор статуса */}
                 <div className={`absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-[#1A1A1A] ${isDone ? 'bg-green-500' : 'bg-orange-500'}`} />
             </div>
 
-            {/* Текстовая часть */}
             <div className="space-y-2 w-full">
                 <h3 className="text-white font-bold uppercase tracking-tight text-lg truncate px-2">
                     {item.name}

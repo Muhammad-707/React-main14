@@ -3,17 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import TodoList from './TodoList';
 
-// Импорты компонентов
 import Card1 from './Card1';
 import Card2 from './Card2';
 import Card3 from './Card3';
 import Card4 from './Card4';
 
-// Импорты стилей Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Импорты ассетов (проверь пути!)
 import i1 from "../assets/Button (5).png";
 import i2 from "../assets/b226f513f40323002014adf4315689b8accf4c55.png";
 import i3 from "../assets/Button (6).png";

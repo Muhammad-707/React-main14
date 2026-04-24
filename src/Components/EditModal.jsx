@@ -4,12 +4,11 @@ import { X } from 'lucide-react';
 export default function EditModal({
     open,
     setOpen,
-    onSave, // Логика сохранения (PUT запрос)
+    onSave, 
     name,
     setName,
     desc,
     setDesc,
-    // В EditModal часто нужно передавать текущее изображение для превью
 }) {
     if (!open) return null;
 
