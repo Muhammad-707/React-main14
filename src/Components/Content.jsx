@@ -34,7 +34,7 @@ export default function Content() {
     };
 
     const reviews = [
-        { text: "NexGen turned our business around!", author: "Sarah Thompson", role: "CEO of BlueBloom", avatar: i13 },
+        { text: "NexGen turned our or business around!", author: "Sarah Thompson", role: "CEO of BlueBloom", avatar: i13 },
         { text: "The best digital agency we've ever worked with.", author: "Wade Warren", role: "Art Director", avatar: i14 },
         { text: "Incredible attention to detail.", author: "Lisa Williams", role: "CEO of HealthTech", avatar: i13 },
         { text: "Their design team is world-class.", author: "Jennifer Lee", role: "COO of Foodie Haven", avatar: i14 },
@@ -161,7 +161,7 @@ export default function Content() {
                         ))}
                     </Swiper>
 
-                    <style jsx global>{`
+                    <style >{`
                         .testimonials-swiper .swiper-pagination-bullet {
                             background: #262626 !important;
                             opacity: 1;
